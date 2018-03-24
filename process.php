@@ -20,7 +20,7 @@
 		}
 	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	if($row['username'] == $myusername && $row['password'] == $mypassword){
-	echo "Welcome".$row['username'];
+	echo "Welcome ".$row['username'];
 	
 	}else{
 		echo"Failed to login";
@@ -39,6 +39,7 @@
 	<title>WelcomeQR</title>
 	</head>
 	<body>
-		<img src="qrcode.php?text='username'&size=120&padding=10" alt="QR CODE">
+	<h1>ok</h1>
+		<img src="qrcode.php?text='<?php echo $row['username']; ?>'&size=200&padding=20" alt="QR CODE">
 	</body>
 </html>
