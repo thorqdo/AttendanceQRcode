@@ -1,45 +1,30 @@
 <?php
-	//get value from form
-	$myusername = $_POST['username'];
-	$mypassword = $_POST['password'];
-	
-	$myusername = stripslashes($myusername);
-	$mypassword = stripslashes($mypassword);
-	//$myusername = mysql_real_escape_string($myusername);
-	//$mypassword = mysql_real_escape_string($mypassword);
-	
-	//connect to db and select
+
+if(isset($_POST['btnlogin'])){
+
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+
 	$link = mysqli_connect("localhost", "root","", "clache");
-	
+	// INNER JOIN teach ON account.aid = teach.aid
 	
 	//query
-	$result = mysqli_query($link,"select * from taikhoan where username = '$myusername' and password = '$mypassword'");
+	$result = mysqli_query($link,"select * from account where aid = '$username' and password = '$password'");
 	if (mysqli_connect_errno())
 		{
 			echo "Failed to connect to MySQL: " . mysqli_connect_error();
 		}
-	$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-	if($row['username'] == $myusername && $row['password'] == $mypassword){
-	echo "Welcome ".$row['username'];
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		if($row['aid'] == $username && $row['password'] == $password){
+			session_start();
+			$_SESSION['username'] = $username;
+			$name = $row[fullname];
+			$ms = $row[aid];
+			header('location: clache.php');
+		}else{
+			echo "Wrong Username or Password";
+			echo "<a href=index.html style='font-size:50px'>Try Again</a>";
 	
-	}else{
-		echo"Failed to login";
-	}
-	
-	mysqli_close($link);
-	
-	
-	?>
-	
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<title>WelcomeQR</title>
-	</head>
-	<body>
-	<h1>ok</h1>
-		<img src="qrcode.php?text='<?php echo $row['username']; ?>'&size=200&padding=20" alt="QR CODE">
-	</body>
-</html>
+	} 
+}
+?>

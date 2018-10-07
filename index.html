@@ -3,171 +3,43 @@
 <head>
 <meta charset="utf-8">
 
-<link href="style.css" type="text/css">
-<style>
-	body{
-		text-align: center;
-		font-family: "Lato", sans-serif;
-		height: 100%;
-		color: #777;
-		line-height: 1.8;
-		margin: 0;
-}
-	}
-	a {
-		color: #0366d6;
-		text-decoration: none;
-		width: 98.5%
-		
-	}
-	* {
-		box-sizing: border-box;
-	}
-	.box{
-			margin: 0 auto;
-			padding: 35px 0 30px;
-			float: none;
-			width: 400px;
-			box-shadow: 0 0 6px 2px rgba(0,0,0,.1);
-			border-radius: 5px;
-			background: rgba(255,255,255,.65);
-			
-	}
-	h1{
-		font-size: 3rem;
-	}
-	
-	.containeradd{
-			position: absolute!important;
-			top: 90px;
-			left: 0;
-			right: 0;
-			text-align: center;
-			max-width: none;
-	}
-	.wrapper{
-				position: absolute;
-				top: 90px;
-				left: 0;
-				right: 0;
-				text-align: center;
-	}
-	.nd{
-		    max-width: 800px;
-			margin: 50px auto;
-			text-align: center;
-	}
-	div{
-		display: block;
-	}
-	.btn {
-			position: relative;
-			display: inline-block;
-			padding: 6px 12px;
-			font-size: 14px;
-			font-weight: 600;
-			line-height: 20px;
-			white-space: nowrap;
-			vertical-align: middle;
-			cursor: pointer;
-			user-select: none;
-			background-repeat: repeat-x;
-			background-position: -1px -1px;
-			background-size: 110% 110%;
-			border: 1px solid rgba(27,31,35,0.2);
-			border-radius: 0.25em;
-			appearance: none;
-	}
-	.btn {
-			text-align: center;
-			cursor: pointer;
-			white-space: nowrap;
-			vertical-align: middle;
-			overflow: hidden;
-			text-decoration: none;
-			border: none;
-			display: inline-block;
-			user-select: none;
-	}
-	.shelf-cta {
-			padding: 10px 50px;
-			font-size: 16px;
-	}
+<link href="./static/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="signin.css" type="text/css" rel="stylesheet">
+<link href="cover.css" type="text/css" rel="stylesheet">
 
-	.ml-3 {
-			margin-left: 16px !important;
-		}
-		.bgimg {
-			background-image: url(background.jpg);
-			min-height: 100%;
-			background-attachment: fixed;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		.opacity-min {
-			opacity: 0.75;
-		}
-		.display-container {
-			position: relative;
-		}	
-		.display-middle {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			
-		}
-		.wide {
-			letter-spacing: 5px;
-		}
-		.padding-large {
-			padding: 12px 24px!important;
-		}
-		.center {
-			text-align: center!important;
-		}
-		
-		.xlarge {
-			font-size: 54px!important;
-		}
-		.large{
-			font-size: 24px!important;
-		}
-		.animate-opacity {
-			animation: opac 0.8s;
-		}
-		.blacknwhite {
-			color: #fff!important;
-			background-color: #000!important;
-		}
-		.darkblue{
-			color: #fff!important;
-			background-color: #001133
-		}
-		.smaller{
-			text-align: middle!important;
-			padding: auto;
-			margin: auto;
-			width: 100%;
-			height: 999px;
-		}
-</style>
-<head>
 <title>Homepage</title>
-<body>
-<div class="container smaller">
-	<div class="bgimg display-container opacity-min">
-	  <div class="display-middle" style="white-space:nowrap;">
-			<span class="center padding-large xlarge wide animate-opacity ">
-						<h1 class="blacknwhite">CLACHE</h1>
-						<a class="btn shelf-cta ml-3 padding-large darkblue large" href="sinhvien.php">I am a Student!!</a>
-						<a class="btn shelf-cta ml-3 padding-large darkblue large" href="giangvien.php">Your Professor is here!!</a>
-			</span>			
-		</div>
-	</div>
-</div>
-</body>
+<style type="text/css">
+  .bimg{
+      background-image: url('static/img/cover.jpg');
+      background-repeat: no-repeat;
+      background-color: black;
+
+    }
+    img{
+      margin: 5px
+    }
+</style>
+</head>
+<body class="text-center bimg">
+<div class ="bimg opacity-min display-container" >
+  
+<div class ="wrapper box display-middle">
+
+    <form class="form-signin" method="POST" action="process.php">
+      
+      <img src="static/img/logo.png" width="150" height="150">
+      <br>
+      <label for="inputUsername" class="sr-only">Username</label>
+      <input name="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      
+      <button class="btn btn-lg btn-dark btn-block" type="submit" name="btnlogin">Log in</button>
+      <p class="mt-5 mb-3 text-muted">&copy; DQTho-2018</p>
+    </form>
+    </div>
+    </div>
+  </body>
 
 	
 </html>
